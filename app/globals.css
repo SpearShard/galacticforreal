@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+@font-face {
+  font-family: 'test';
+  src: url('/fonts/dark.ttf');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'dena';
+  src: url('/fonts/Dena.ttf');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'scrib';
+  src: url('/fonts/scrib.otf');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  src: url('/fonts/Aeonik.otf');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+    font-family: 'NeueMontreal';
+    src: url('/fonts/NeueMontreal-Regular.otf');
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'me';
+    src: url('/fonts/MonumentExtended-Regular.otf');
+    font-weight: 700;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, .heading-1, .heading-2, .heading-3 {
+  font-family: 'MonumentExtended', 'NeueMontreal', 'new', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+    color: #fff;
+    font-size: 7rem;
+    font-weight: 400;
+    line-height: 1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Custom utility classes */
+.text-gradient {
+  background: linear-gradient(45deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Custom focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300;
+}
+
+.btn-secondary {
+  @apply bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors duration-300;
+}
+
+/* Custom input styles */
+.input-primary {
+  @apply bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500;
+}
+
+/* Custom card styles */
+.card {
+  @apply bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors duration-300;
+}
+
+/* Custom section styles */
+.section-padding {
+  @apply py-24;
+}
+
+.container-padding {
+  @apply px-6;
+}
+
+/* Custom typography */
+.heading-1 {
+  @apply text-5xl md:text-7xl font-bold;
+}
+
+.heading-2 {
+  @apply text-4xl md:text-5xl font-bold;
+}
+
+.heading-3 {
+  @apply text-2xl md:text-3xl font-semibold;
+}
+
+.body-text {
+  @apply text-gray-400;
+}
+
+/* Compatibility shim: force existing arbitrary "font-[...]" utilities to use Montserrat.
+   These classnames were used throughout the codebase (for example: font-['scrib'],
+   font-['test'], font-['MonumentExtended'], font-['NeueMontreal'], font-['Aeonik'],
+   font-['dena'], font-['me'], font-['new']). Instead of changing every file right now,
+   this small override ensures Montserrat is used everywhere. These rules are
+   intentionally specific and use !important so they override existing utilities.
+   If you later want to canonicalize classnames, we can mass-rename them and remove
+   this shim.
+*/
+
+[class*="font-['scrib']"],
+[class*="font-['test']"],
+[class*="font-['MonumentExtended']"],
+[class*="font-['NeueMontreal']"],
+[class*="font-['Aeonik']"],
+[class*="font-['dena']"],
+[class*="font-['me']"],
+[class*="font-['new']"] {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
