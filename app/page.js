@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import ImageCascadeGSAP from "../app/components/ImageCascadeGSAP";
-
+import TeamCarousel from "../app/components/TeamCarousel";
 
 import ServiceTabs from "../app/components/ServiceTabs";
 import TechShowcase from "../app/components/TechShowcase";
@@ -188,12 +188,13 @@ export default function Home() {
                 >
                   Get a Quote
                 </a>
-                <a
+              {/*  <a
                   href="/contact"
                   className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg transition-colors duration-300"
                 >
                   Book a Demo
                 </a>
+                */}
               </div>
             </div>
             <div className="md:col-start-2">
@@ -750,6 +751,9 @@ export default function Home() {
           </div> */}
         </div>
       </section>
+
+      {/* Team Carousel Section */}
+      <TeamCarousel />
 
       {/* Quick Contact Form */}
       <section className="py-20">
