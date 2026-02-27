@@ -22,7 +22,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div style={{ background: "#2f1212", minHeight: "100vh" }}>
+    <div style={{ padding:"50px", background: "#2f1212", minHeight: "100vh" }}>
       <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "60px 80px", color: "white" }}>
 
         {/* TWO COLUMN LAYOUT: IMAGE ON LEFT, CONTENT ON RIGHT (equal-height) */}

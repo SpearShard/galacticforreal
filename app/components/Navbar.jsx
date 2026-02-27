@@ -83,12 +83,12 @@ export default function Navbar() {
             >
               Upload 
             </Link>
-            {/* <Link
-              href="/services"
+            <Link
+              href="/careers"
               className="text-white font-neueMontreal tracking-wide text-lg hover:text-primary transition duration-300 focus:outline-none focus-visible:underline"
             >
-              Services
-            </Link> */}
+              Careers
+            </Link>
             {/* <Link
               href="/machines"
               className="text-white font-neueMontreal tracking-wide text-lg hover:text-primary transition duration-300 focus:outline-none focus-visible:underline"

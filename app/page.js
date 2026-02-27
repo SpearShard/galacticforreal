@@ -188,13 +188,19 @@ export default function Home() {
                 >
                   Get a Quote
                 </a>
+
               {/*  <a
+                {/* <a
                   href="/contact"
                   className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-lg transition-colors duration-300"
                 >
                   Book a Demo
+
                 </a>
                 */}
+
+                {/* </a> */}
+
               </div>
             </div>
             <div className="md:col-start-2">
