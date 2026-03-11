@@ -180,46 +180,46 @@ export default function MarketplacePage() {
   const [uploadedFileUrl, setUploadedFileUrl] = useState(null)
 
   useEffect(() => {
-  return () => {
-    if (uploadedFileUrl?.startsWith("blob:")) {
-      URL.revokeObjectURL(uploadedFileUrl)
+    return () => {
+      if (uploadedFileUrl?.startsWith("blob:")) {
+        URL.revokeObjectURL(uploadedFileUrl)
+      }
     }
-  }
-}, [uploadedFileUrl])
+  }, [uploadedFileUrl])
 
 
 
   const handleSubmit = async (e) => {
-  e.preventDefault()
+    e.preventDefault()
 
-  if (!file) {
-    alert("Please select a file first")
-    return
+    if (!file) {
+      alert("Please select a file first")
+      return
+    }
+
+    setLoading(true)
+
+    const formData = new FormData(e.target)
+
+    const res = await fetch("/api/upload", {
+      method: "POST",
+      body: formData
+    })
+
+    const data = await res.json()
+
+    alert(data.message)
+
+    // ✅ SET STL PREVIEW URL HERE
+    if (data.fileUrl) {
+      setUploadedFileUrl(data.fileUrl)
+    }
+
+    // reset UI
+    setFile(null)
+    e.target.reset()
+    setLoading(false)
   }
-
-  setLoading(true)
-
-  const formData = new FormData(e.target)
-
-  const res = await fetch("/api/upload", {
-    method: "POST",
-    body: formData
-  })
-
-  const data = await res.json()
-
-  alert(data.message)
-
-  // ✅ SET STL PREVIEW URL HERE
-  if (data.fileUrl) {
-    setUploadedFileUrl(data.fileUrl)
-  }
-
-  // reset UI
-  setFile(null)
-  e.target.reset()
-  setLoading(false)
-}
 
 
 
@@ -308,14 +308,14 @@ export default function MarketplacePage() {
                       className="hidden"
                       accept=".stl,.obj,.step,.fbx,.gltf"
                       onChange={(e) => {
-  const selectedFile = e.target.files[0]
-  setFile(selectedFile)
+                        const selectedFile = e.target.files[0]
+                        setFile(selectedFile)
 
-  if (selectedFile) {
-    const localUrl = URL.createObjectURL(selectedFile)
-    setUploadedFileUrl(localUrl)
-  }
-}}
+                        if (selectedFile) {
+                          const localUrl = URL.createObjectURL(selectedFile)
+                          setUploadedFileUrl(localUrl)
+                        }
+                      }}
 
                     />
 
@@ -340,10 +340,10 @@ export default function MarketplacePage() {
                     <div>
                       <label className="text-sm text-gray-300 block mb-1">Material</label>
                       <select
-                        name="material"
-                        className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary"
-                        required
-                      >
+  name="material"
+  className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary [&>option]:bg-black [&>option]:text-white"
+  required
+>
 
                         <option value="">Select material</option>
                         <option>PLA</option>
@@ -360,11 +360,11 @@ export default function MarketplacePage() {
                     </div>
                     <div>
                       <label className="text-sm text-gray-300 block mb-1">Finish</label>
-                      <select
-                        name="finish"
-                        className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary"
-                        required
-                      >
+                     <select
+  name="finish"
+  className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary [&>option]:bg-black [&>option]:text-white"
+  required
+>
 
                         <option value="">Select finish</option>
                         <option>As Printed</option>
@@ -393,10 +393,10 @@ export default function MarketplacePage() {
                     <div>
                       <label className="text-sm text-gray-300 block mb-1">Priority</label>
                       <select
-                        name="priority"
-                        className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary"
-                        required
-                      >
+  name="priority"
+  className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary [&>option]:bg-black [&>option]:text-white"
+  required
+>
 
                         <option value="">Select priority</option>
                         <option>Standard (7-10 days)</option>
@@ -432,12 +432,12 @@ export default function MarketplacePage() {
 
             </motion.div>
           </div>
-              {uploadedFileUrl && (
-  <div className="mt-10 -ml-[5vw] w-[97vw]">
-    <h3 className="text-xl mb-4">3D Model Preview</h3>
-    <STLViewer fileUrl={uploadedFileUrl} />
-  </div>
-)}
+          {uploadedFileUrl && (
+            <div className="mt-10 -ml-[5vw] w-[97vw]">
+              <h3 className="text-xl mb-4">3D Model Preview</h3>
+              <STLViewer fileUrl={uploadedFileUrl} />
+            </div>
+          )}
         </div>
       </section>
 

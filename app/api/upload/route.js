@@ -68,7 +68,7 @@ export async function POST(req) {
     const material = formData.get("material")
     const finish = formData.get("finish")
     const quantity = formData.get("quantity")
-    const priority = formData.get("priority")
+    // const priority = formData.get("priority")
     const instruction = formData.get("instruction")
 
     if (!file) {
@@ -104,7 +104,7 @@ export async function POST(req) {
           material,
           finish,
           quantity,
-          priority,
+         
           instruction,
         },
       ])

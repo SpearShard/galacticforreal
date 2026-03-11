@@ -1,330 +1,444 @@
+// "use client";
+
+// import React, { useState } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import {
+//   MapPin,
+//   Briefcase,
+//   Upload,
+//   Sparkles,
+//   Cpu,
+//   Factory,
+//   Users,
+//   ChevronRight,
+//   Flame,
+//   Layers,
+//   Activity,
+//   Shield,
+//   Zap
+// } from "lucide-react";
+
+
+
+// const jobsData = [
+//   {
+//     id: "J-001",
+//     title: "Additive Manufacturing Engineer",
+//     location: "Bengaluru",
+//     type: "Full-time",
+//     experience: "3–5 years",
+//     salary: "₹8L – ₹14L",
+//     description:
+//       "Optimize metal AM builds, manage parameters and scale production workflows.",
+//     responsibilities: [
+//       "Develop print strategies",
+//       "Parameter optimization",
+//       "Post-processing workflows",
+//       "Quality validation"
+//     ]
+//   },
+//   {
+//     id: "J-002",
+//     title: "Generative Design Engineer",
+//     location: "Hybrid",
+//     type: "Full-time",
+//     experience: "2–4 years",
+//     salary: "₹6L – ₹10L",
+//     description:
+//       "Design production-ready components using DFAM and generative workflows.",
+//     responsibilities: [
+//       "Topology optimization",
+//       "Simulation validation",
+//       "Design for additive",
+//       "Client collaboration"
+//     ]
+//   },
+//   {
+//     id: "J-003",
+//     title: "Materials Scientist",
+//     location: "On-site",
+//     type: "Contract",
+//     experience: "PhD preferred",
+//     salary: "Negotiable",
+//     description:
+//       "Characterize material behavior and develop new printable compositions.",
+//     responsibilities: [
+//       "Material testing",
+//       "Microstructure analysis",
+//       "Failure investigation",
+//       "R&D experiments"
+//     ]
+//   }
+// ];
+
+// const benefits = [
+//   { icon: Factory, title: "Industrial Scale Labs", desc: "Metal and polymer production systems." },
+//   { icon: Cpu, title: "Advanced Engineering", desc: "Simulation and generative workflows." },
+//   { icon: Users, title: "Elite Team", desc: "Mechanical and materials specialists." },
+//   { icon: Shield, title: "Mission Critical", desc: "Aerospace and medical deployment." }
+// ];
+
+// const equipment = [
+//   "EOS M 290 Metal Printer",
+//   "SLM 280 Production System",
+//   "Carbon M2 Polymer Platform",
+//   "Industrial Heat Treatment Furnaces",
+//   "5 Axis CNC Post Processing",
+//   "Metrology Grade CT Scanning"
+// ];
+
+// const processSteps = [
+//   "Design Optimization",
+//   "Material Preparation",
+//   "Precision Printing",
+//   "Thermal Processing",
+//   "Quality Validation",
+//   "Deployment"
+// ];
+
+
+
+// function GlassPanel({ children, className = "" }) {
+//   return (
+//     <div className={`relative rounded-[28px] border border-white/10 bg-white/[0.05] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] ${className}`}>
+//       <div className="absolute inset-0 rounded-[28px] bg-[radial-gradient(circle_at_0%_0%,rgba(255,255,255,0.15),transparent_40%)] pointer-events-none" />
+//       {children}
+//     </div>
+//   );
+// }
+
+// function Orb({ className }) {
+//   return <div className={`absolute rounded-full blur-[140px] opacity-40 ${className}`} />;
+// }
+
+
+
+// function JobCard({ job, onSelect }) {
+//   return (
+//     <motion.div
+//       whileHover={{ y: -10, scale: 1.03 }}
+//       transition={{ type: "spring", stiffness: 200, damping: 18 }}
+//       onClick={() => onSelect(job)}
+//       className="cursor-pointer"
+//     >
+//       <GlassPanel className="p-8 group overflow-hidden">
+//         <div className="flex justify-between mb-6">
+//           <div className="text-xs tracking-widest text-red-400/70">{job.id}</div>
+//           <Sparkles className="text-white/40 group-hover:text-red-400 transition" />
+//         </div>
+
+//         <h3 className="text-2xl font-semibold mb-4">{job.title}</h3>
+
+//         <div className="space-y-2 text-white/60 text-sm mb-6">
+//           <div className="flex items-center gap-2"><MapPin size={14}/> {job.location}</div>
+//           <div className="flex items-center gap-2"><Briefcase size={14}/> {job.type}</div>
+//           <div>{job.experience}</div>
+//           <div className="text-white font-medium">{job.salary}</div>
+//         </div>
+
+//         <div className="flex items-center gap-2 text-sm text-white/40 group-hover:text-white transition">
+//           View Role <ChevronRight size={16} />
+//         </div>
+//       </GlassPanel>
+//     </motion.div>
+//   );
+// }
+
+
+
+// export default function CareersPage() {
+//   const [selectedJob, setSelectedJob] = useState(null);
+
+//   return (
+//     <div className="min-h-screen bg-black text-white overflow-hidden relative">
+
+
+//         <section className="py-40 px-6 container mx-auto">
+//           <GlassPanel className="p-12 max-w-2xl mx-auto">
+//             <h2 className="text-3xl mb-8">Apply</h2>
+
+//             <form className="space-y-6">
+//               <input placeholder="Full Name" className="w-full p-4 rounded-xl bg-white/5 border border-white/10" />
+//               <input placeholder="Email" className="w-full p-4 rounded-xl bg-white/5 border border-white/10" />
+//               <input placeholder="Phone" className="w-full p-4 rounded-xl bg-white/5 border border-white/10" />
+//               <textarea placeholder="Tell us about yourself" className="w-full p-4 rounded-xl bg-white/5 border border-white/10" />
+
+//               <label className="flex items-center gap-3 text-white/70 cursor-pointer">
+//                 <Upload /> Upload Resume
+//                 <input type="file" className="hidden" />
+//               </label>
+
+//               <button className="w-full py-4 rounded-xl bg-gradient-to-r from-red-600 to-red-400 font-semibold">
+//                 Submit Application
+//               </button>
+//             </form>
+//           </GlassPanel>
+//         </section>
+//       </div>
+
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  MapPin,
-  Briefcase,
-  Upload,
-  Sparkles,
-  Cpu,
-  Factory,
-  Users,
-  ChevronRight,
-  Flame,
-  Layers,
-  Activity,
-  Shield,
-  Zap
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { UploadCloud } from "lucide-react";
+import { supabase } from "../lib/supabaseClient";
+import { useState, useEffect } from "react";
 
-/* =====================================================
-   DATA
-===================================================== */
-
-const jobsData = [
-  {
-    id: "J-001",
-    title: "Additive Manufacturing Engineer",
-    location: "Bengaluru",
-    type: "Full-time",
-    experience: "3–5 years",
-    salary: "₹8L – ₹14L",
-    description:
-      "Optimize metal AM builds, manage parameters and scale production workflows.",
-    responsibilities: [
-      "Develop print strategies",
-      "Parameter optimization",
-      "Post-processing workflows",
-      "Quality validation"
-    ]
-  },
-  {
-    id: "J-002",
-    title: "Generative Design Engineer",
-    location: "Hybrid",
-    type: "Full-time",
-    experience: "2–4 years",
-    salary: "₹6L – ₹10L",
-    description:
-      "Design production-ready components using DFAM and generative workflows.",
-    responsibilities: [
-      "Topology optimization",
-      "Simulation validation",
-      "Design for additive",
-      "Client collaboration"
-    ]
-  },
-  {
-    id: "J-003",
-    title: "Materials Scientist",
-    location: "On-site",
-    type: "Contract",
-    experience: "PhD preferred",
-    salary: "Negotiable",
-    description:
-      "Characterize material behavior and develop new printable compositions.",
-    responsibilities: [
-      "Material testing",
-      "Microstructure analysis",
-      "Failure investigation",
-      "R&D experiments"
-    ]
-  }
-];
-
-const benefits = [
-  { icon: Factory, title: "Industrial Scale Labs", desc: "Metal and polymer production systems." },
-  { icon: Cpu, title: "Advanced Engineering", desc: "Simulation and generative workflows." },
-  { icon: Users, title: "Elite Team", desc: "Mechanical and materials specialists." },
-  { icon: Shield, title: "Mission Critical", desc: "Aerospace and medical deployment." }
-];
-
-const equipment = [
-  "EOS M 290 Metal Printer",
-  "SLM 280 Production System",
-  "Carbon M2 Polymer Platform",
-  "Industrial Heat Treatment Furnaces",
-  "5 Axis CNC Post Processing",
-  "Metrology Grade CT Scanning"
-];
-
-const processSteps = [
-  "Design Optimization",
-  "Material Preparation",
-  "Precision Printing",
-  "Thermal Processing",
-  "Quality Validation",
-  "Deployment"
-];
-
-/* =====================================================
-   GLASS UI
-===================================================== */
-
-function GlassPanel({ children, className = "" }) {
-  return (
-    <div className={`relative rounded-[28px] border border-white/10 bg-white/[0.05] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] ${className}`}>
-      <div className="absolute inset-0 rounded-[28px] bg-[radial-gradient(circle_at_0%_0%,rgba(255,255,255,0.15),transparent_40%)] pointer-events-none" />
-      {children}
-    </div>
-  );
-}
 
 function Orb({ className }) {
-  return <div className={`absolute rounded-full blur-[140px] opacity-40 ${className}`} />;
-}
-
-/* =====================================================
-   JOB CARD
-===================================================== */
-
-function JobCard({ job, onSelect }) {
   return (
-    <motion.div
-      whileHover={{ y: -10, scale: 1.03 }}
-      transition={{ type: "spring", stiffness: 200, damping: 18 }}
-      onClick={() => onSelect(job)}
-      className="cursor-pointer"
-    >
-      <GlassPanel className="p-8 group overflow-hidden">
-        <div className="flex justify-between mb-6">
-          <div className="text-xs tracking-widest text-red-400/70">{job.id}</div>
-          <Sparkles className="text-white/40 group-hover:text-red-400 transition" />
-        </div>
-
-        <h3 className="text-2xl font-semibold mb-4">{job.title}</h3>
-
-        <div className="space-y-2 text-white/60 text-sm mb-6">
-          <div className="flex items-center gap-2"><MapPin size={14}/> {job.location}</div>
-          <div className="flex items-center gap-2"><Briefcase size={14}/> {job.type}</div>
-          <div>{job.experience}</div>
-          <div className="text-white font-medium">{job.salary}</div>
-        </div>
-
-        <div className="flex items-center gap-2 text-sm text-white/40 group-hover:text-white transition">
-          View Role <ChevronRight size={16} />
-        </div>
-      </GlassPanel>
-    </motion.div>
+    <div className={`absolute rounded-full blur-[140px] opacity-30 ${className}`} />
   );
 }
 
-/* =====================================================
-   MAIN PAGE
-===================================================== */
-
 export default function CareersPage() {
-  const [selectedJob, setSelectedJob] = useState(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [about, setAbout] = useState("");
+  const [resume, setResume] = useState(null);
+  const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (status) {
+      const timer = setTimeout(() => {
+        setStatus(null);
+      }, 4000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if(loading) return;
+    setLoading(true);
+
+    let resumeUrl = null;
+
+    // Upload resume to storage
+    if (resume) {
+      const fileName = `${Date.now()}-${resume.name}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from("resume")
+        .upload(fileName, resume);
+
+      if (uploadError) {
+        console.error(uploadError);
+        setStatus({ type: "error", message: "Resume upload failed. Please try again." });
+        return;
+      }
+
+      const { data } = supabase.storage
+        .from("resume")
+        .getPublicUrl(fileName);
+
+      resumeUrl = data.publicUrl;
+    }
+
+    // Save application
+    const { error } = await supabase
+      .from("applications")
+      .insert([
+        {
+          name,
+          email,
+          role,
+          about,
+          resume_url: resumeUrl
+        }
+      ]);
+
+    if (error) {
+  console.error(error);
+  setStatus({ type: "error", message: "Application submission failed." });
+  setLoading(false);
+} else {
+      setStatus({ type: "success", message: "Application submitted successfully." });
+      setName("");
+      setEmail("");
+      setRole("");
+      setAbout("");
+      setResume(null);
+      document.getElementById("resumeUpload").value = "";
+      setLoading(false);
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden relative">
+    <div className="min-h-screen bg-black text-white relative overflow-hidden px-8 py-40 flex justify-center">
 
-      {/* AMBIENT RED ORBS */}
-      <Orb className="w-[700px] h-[700px] bg-red-600/40 -top-40 -left-40" />
-      <Orb className="w-[700px] h-[700px] bg-red-500/20 bottom-0 right-0" />
+      {/* Background lights */}
+      <Orb className="w-[500px] h-[500px] bg-red-500/30 -top-40 -left-40" />
+      <Orb className="w-[400px] h-[400px] bg-orange-500/20 bottom-0 right-0" />
 
-      {/* GRID OVERLAY */}
-      <div className="fixed inset-0 opacity-[0.05] pointer-events-none bg-[linear-gradient(to_right,#ffffff20_1px,transparent_1px),linear-gradient(to_bottom,#ffffff20_1px,transparent_1px)] bg-[size:120px_120px]" />
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="max-w-3xl w-full"
+      >
 
-      <div className="relative z-10">
+        {/* Header */}
+        <div className="mb-20">
+          <h1 className="text-5xl font-semibold mb-6">
+            Careers
+          </h1>
 
-        {/* HERO */}
-        <section className="pt-44 pb-32 px-6 container mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-bold leading-[0.85] tracking-tight"
-          >
-            Engineering
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-300">
-              Matter Into Form
-            </span>
-          </motion.h1>
-
-          <p className="text-xl text-white/60 mt-8 max-w-2xl">
-            Join a high-performance additive manufacturing company delivering
-            precision engineered components across aerospace, robotics and
-            medical industries.
+          <p className="text-white/60 max-w-xl leading-relaxed">
+            We are always looking for talented engineers, designers,
+            and innovators passionate about advanced manufacturing.
+            Submit your application below.
           </p>
-        </section>
+        </div>
 
-        {/* STATS STRIP */}
-        <section className="py-10 border-y border-white/10 overflow-hidden">
-          <motion.div
-            animate={{ x: [0, -1200] }}
-            transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-            className="flex gap-20 text-sm tracking-widest text-white/40 whitespace-nowrap"
-          >
-            {[...Array(6)].map((_, i) => (
-              <React.Fragment key={i}>
-                <div className="flex items-center gap-3"><Activity size={16}/> 50K+ PARTS PRODUCED</div>
-                <div className="flex items-center gap-3"><Flame size={16}/> METAL & POLYMER SYSTEMS</div>
-                <div className="flex items-center gap-3"><Zap size={16}/> HIGH PERFORMANCE MATERIALS</div>
-                <div className="flex items-center gap-3"><Layers size={16}/> INDUSTRIAL PRODUCTION</div>
-              </React.Fragment>
-            ))}
-          </motion.div>
-        </section>
 
-        {/* BENEFITS */}
-        <section className="py-32 px-6 container mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map(b => {
-              const Icon = b.icon;
-              return (
-                <GlassPanel key={b.title} className="p-8">
-                  <Icon className="mb-4 text-red-400" />
-                  <h3 className="text-xl mb-2">{b.title}</h3>
-                  <p className="text-white/60 text-sm">{b.desc}</p>
-                </GlassPanel>
-              );
-            })}
-          </div>
-        </section>
 
-        {/* MANUFACTURING PROCESS */}
-        <section className="py-32 px-6 container mx-auto">
-          <h2 className="text-4xl mb-16">Manufacturing Workflow</h2>
-          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {processSteps.map((step, i) => (
-              <GlassPanel key={step} className="p-6 text-center">
-                <div className="text-red-400 text-sm mb-2">0{i + 1}</div>
-                <div className="text-sm text-white/70">{step}</div>
-              </GlassPanel>
-            ))}
-          </div>
-        </section>
+        {/* Application */}
+        <form onSubmit={handleSubmit} className="space-y-14">
 
-        {/* EQUIPMENT SHOWCASE */}
-        <section className="py-32 px-6 container mx-auto">
-          <h2 className="text-4xl mb-16">Production Infrastructure</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {equipment.map(item => (
-              <GlassPanel key={item} className="p-8">
-                <div className="text-lg">{item}</div>
-              </GlassPanel>
-            ))}
-          </div>
-        </section>
+          {/* Name */}
+          <div>
+            <label className="block text-sm text-white/50 mb-3 uppercase tracking-widest">
+              Full Name
+            </label>
 
-        {/* JOBS */}
-        <section className="py-32 px-6 container mx-auto">
-          <div className="flex justify-between items-end mb-12">
-            <h2 className="text-4xl font-semibold">Open Positions</h2>
-            <div className="text-white/40 text-sm">{jobsData.length} roles available</div>
+            <input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full bg-transparent border-b border-white/20 focus:border-red-500 outline-none py-3 text-lg transition"
+            />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {jobsData.map(job => (
-              <JobCard key={job.id} job={job} onSelect={setSelectedJob} />
-            ))}
+
+          {/* Email */}
+          <div>
+            <label className="block text-sm text-white/50 mb-3 uppercase tracking-widest">
+              Email Address
+            </label>
+
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full bg-transparent border-b border-white/20 focus:border-red-500 outline-none py-3 text-lg transition"
+            />
           </div>
-        </section>
 
-        {/* JOB MODAL */}
-        <AnimatePresence>
-          {selectedJob && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-xl flex items-center justify-center p-6 z-50"
-            >
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                className="max-w-2xl w-full"
-              >
-                <GlassPanel className="p-12">
-                  <h2 className="text-3xl mb-4">{selectedJob.title}</h2>
-                  <p className="text-white/60 mb-6">{selectedJob.description}</p>
 
-                  <h4 className="mb-3 font-medium">Responsibilities</h4>
-                  <ul className="list-disc ml-6 text-white/60 space-y-1 mb-8">
-                    {selectedJob.responsibilities.map(r => (
-                      <li key={r}>{r}</li>
-                    ))}
-                  </ul>
+          {/* Role */}
+          <div>
+            <label className="block text-sm text-white/50 mb-3 uppercase tracking-widest">
+              Position you're applying for
+            </label>
 
-                  <button className="w-full py-4 rounded-xl bg-gradient-to-r from-red-600 to-red-400 font-semibold">
-                    Apply Now
-                  </button>
+            <input
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              className="w-full bg-transparent border-b border-white/20 focus:border-red-500 outline-none py-3 text-lg transition"
+            />
+          </div>
 
-                  <button onClick={() => setSelectedJob(null)} className="mt-4 w-full text-white/40">
-                    Close
-                  </button>
-                </GlassPanel>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
-        {/* APPLICATION */}
-        <section className="py-40 px-6 container mx-auto">
-          <GlassPanel className="p-12 max-w-2xl mx-auto">
-            <h2 className="text-3xl mb-8">Apply</h2>
+          {/* About */}
+          <div>
+            <label className="block text-sm text-white/50 mb-3 uppercase tracking-widest">
+              Tell us about yourself
+            </label>
 
-            <form className="space-y-6">
-              <input placeholder="Full Name" className="w-full p-4 rounded-xl bg-white/5 border border-white/10" />
-              <input placeholder="Email" className="w-full p-4 rounded-xl bg-white/5 border border-white/10" />
-              <input placeholder="Phone" className="w-full p-4 rounded-xl bg-white/5 border border-white/10" />
-              <textarea placeholder="Tell us about yourself" className="w-full p-4 rounded-xl bg-white/5 border border-white/10" />
+            <textarea
+              rows="4"
+              value={about}
+              onChange={(e) => setAbout(e.target.value)}
+              className="w-full bg-transparent border-b border-white/20 focus:border-red-500 outline-none py-3 text-lg resize-none transition"
+            />
+          </div>
 
-              <label className="flex items-center gap-3 text-white/70 cursor-pointer">
-                <Upload /> Upload Resume
-                <input type="file" className="hidden" />
-              </label>
 
-              <button className="w-full py-4 rounded-xl bg-gradient-to-r from-red-600 to-red-400 font-semibold">
-                Submit Application
-              </button>
-            </form>
-          </GlassPanel>
-        </section>
-      </div>
+          {/* Resume */}
+          <div>
+            <label className="block text-sm text-white/50 mb-6 uppercase tracking-widest">
+              Resume
+            </label>
+
+            <label htmlFor="resumeUpload" className="flex items-center gap-3 cursor-pointer text-white/70 hover:text-red-400 transition">
+              {resume && (
+                <p className="text-green-400 text-sm mt-2">
+                  Selected: {resume.name}
+                </p>
+              )}
+              <UploadCloud className="w-5 h-5" />
+              Upload Resume
+              <input
+                id="resumeUpload"
+                type="file"
+                className="hidden"
+                accept=".pdf,.doc,.docx"
+                onChange={(e) => setResume(e.target.files[0])}
+              />           </label>
+          </div>
+
+
+          {/* Submit */}
+          <div className="pt-12 flex items-center gap-6">
+
+  <button type="submit" disabled={loading} className="group relative overflow-hidden border border-red-500 px-12 py-4 rounded-full text-white font-semibold tracking-wide disabled:opacity-50 disabled:cursor-not-allowed">
+
+    <span className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+
+    <span className="relative flex items-center gap-3">
+      {loading ? "Processing..." : "Submit Application"}
+      <span className="transition-transform duration-300 group-hover:translate-x-1">
+        →
+      </span>
+    </span>
+
+  </button>
+
+  {status && (
+    <span
+      className={`text-sm transition-opacity duration-500 ${
+        status.type === "success"
+          ? "text-green-400"
+          : "text-red-400"
+      }`}
+    >
+      {status.message}
+    </span>
+  )}
+
+</div>
+
+        </form>
+
+      </motion.div>
+
     </div>
   );
 }

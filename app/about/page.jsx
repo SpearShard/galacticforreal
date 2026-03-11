@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { EyeIcon, RocketLaunchIcon, CheckCircleIcon } from "@heroicons/react/24/outline"
 import { Users, Award, Building, Briefcase, Handshake, ArrowRight, CheckCircle, ExternalLink, Linkedin, ChevronRight } from 'lucide-react'
 
 export default function About() {
@@ -23,14 +24,14 @@ export default function About() {
   return (
     <main className="text-white">
       {/* HERO / INTRO */}
-      <section className="relative min-h-[70vh] pt-28 pb-16 flex items-end overflow-hidden">
-        {/* Background video */}
+      {/* <section className="relative min-h-[70vh] pt-28 pb-16 flex items-end overflow-hidden">
+        
         <div className="absolute inset-0 -z-20 overflow-hidden">
           <video className="w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" poster="https://images.unsplash.com/photo-1581091215367-59ab6d0051d4?q=80&w=1600&auto=format&fit=crop">
             <source src="/galactic-bg.mp4" type="video/mp4" />
           </video>
         </div>
-        {/* Animated mesh gradient */}
+        
         <div className="absolute inset-0 -z-10 pointer-events-none">
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#1a0f0f]/40 to-[#0f0b0b]/80" />
           <div className="absolute -inset-40 bg-[radial-gradient(800px_circle_at_20%_10%,rgba(185,28,28,0.20),transparent_60%)]" />
@@ -45,10 +46,75 @@ export default function About() {
             </Link>
           </motion.div>
         </div>
+      </section> */}
+
+      <section className="relative min-h-[85vh] flex items-end overflow-hidden pt-32 pb-20">
+
+        {/* VIDEO BACKGROUND */}
+
+        <div className="absolute inset-0 -z-30">
+          <video
+            className="w-full h-full object-cover scale-[1.05]"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="https://images.unsplash.com/photo-1581091215367-59ab6d0051d4?q=80&w=1600&auto=format&fit=crop"
+          >
+            <source src="/galactic-bg.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        {/* CINEMATIC OVERLAYS */}
+
+        <div className="absolute inset-0 -z-20 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
+
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+
+          <div className="absolute -inset-40 bg-[radial-gradient(900px_circle_at_15%_10%,rgba(185,28,28,0.25),transparent_60%)]" />
+
+          <div className="absolute -inset-40 bg-[radial-gradient(700px_circle_at_85%_20%,rgba(255,255,255,0.06),transparent_65%)] animate-spin-slow" />
+
+        </div>
+
+        {/* CONTENT */}
+
+        <div className="container mx-auto px-8 relative z-10">
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl backdrop-blur-xl bg-white/[0.04] border border-white/10 rounded-3xl p-10 shadow-2xl shadow-black/30"
+          >
+
+            <h1 className="text-5xl md:text-7xl font-['test'] leading-tight mb-6 text-white tracking-tight">
+              About Galactic 3D
+            </h1>
+
+            <p className="text-xl md:text-2xl font-['scrib'] text-red-50/90 mb-10">
+              Pioneering the future of Additive Manufacturing.
+            </p>
+
+            <Link
+              href="#our-story"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-['dena'] px-7 py-3 rounded-full transition-all duration-300 hover:scale-105"
+            >
+              Join Our Journey
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+
+          </motion.div>
+
+        </div>
+
       </section>
+
+
       {/* OUR STORY & HISTORY */}
-      <section id="our-story" className="py-20 bg-dark-300 relative overflow-hidden">
-        {/* Background elements */}
+      {/* <section id="our-story" className="py-20 bg-dark-300 relative overflow-hidden">
+        
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-radial from-primary/10 to-transparent opacity-60"></div>
@@ -78,7 +144,7 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Timeline */}
+        
             <div className="relative">
               <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary/50"></div>
 
@@ -101,7 +167,7 @@ export default function About() {
               ))}
             </div>
 
-            {/* Story Content */}
+          
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -128,11 +194,104 @@ export default function About() {
             </motion.div>
           </div>
         </div>
+      </section> */}
+
+      <section id="our-story" className="relative py-36 bg-[#0b0b0c] overflow-hidden">
+
+        <div className="max-w-7xl mx-auto px-10">
+
+          {/* Title */}
+
+          <motion.h2
+            className="text-5xl md:text-6xl font-['dena'] mb-24"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Our Story & History
+          </motion.h2>
+
+          <div className="grid lg:grid-cols-[380px_1fr] gap-20 items-start">
+
+            {/* Timeline navigation */}
+
+            <div className="flex flex-col gap-10">
+
+              {timelineItems.map((item, index) => (
+
+                <div
+                  key={index}
+                  onClick={() => setActiveTimelineItem(index)}
+                  className={`cursor-pointer transition ${index === activeTimelineItem
+                    ? "opacity-100"
+                    : "opacity-40 hover:opacity-70"
+                    }`}
+                >
+
+                  <div className="text-primary text-sm font-['dena'] mb-1">
+                    {item.year}
+                  </div>
+
+                  <h3 className="text-xl font-['test']">
+                    {item.title}
+                  </h3>
+
+                </div>
+
+              ))}
+
+            </div>
+
+            {/* Image story panel */}
+
+            <motion.div
+              key={activeTimelineItem}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+
+              {/* image */}
+
+              <img
+                src={timelineItems[activeTimelineItem].image}
+                className="rounded-3xl w-full h-[520px] object-cover"
+              />
+
+              {/* dark overlay */}
+
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+
+              {/* text panel */}
+
+              <div className="absolute bottom-0 p-10 max-w-xl">
+
+                <p className="text-white/80 font-['scrib'] mb-6">
+                  {timelineItems[activeTimelineItem].description}
+                </p>
+
+                <Link
+                  href="/company-history"
+                  className="text-primary font-['dena'] hover:underline flex items-center gap-2"
+                >
+                  Read our full history
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+
+              </div>
+
+            </motion.div>
+
+          </div>
+
+        </div>
+
       </section>
 
       {/* VISION & MISSION */}
-      <section className="py-24 bg-dark-200 relative overflow-hidden">
-        {/* Abstract background shapes */}
+      {/* <section className="py-24 bg-dark-200 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-1/2 -left-1/4 w-full h-full rounded-full bg-gradient-to-r from-primary/10 to-transparent blur-3xl"></div>
           <div className="absolute -bottom-1/2 -right-1/4 w-full h-full rounded-full bg-gradient-to-l from-secondary/10 to-transparent blur-3xl"></div>
@@ -160,7 +319,6 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Vision */}
             <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-8 rounded-xl border border-white/10 h-full"
               initial={{ opacity: 0, x: -30 }}
@@ -185,7 +343,6 @@ export default function About() {
               </p>
             </motion.div>
 
-            {/* Mission */}
             <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-8 rounded-xl border border-white/10 h-full"
               initial={{ opacity: 0, x: 30 }}
@@ -223,11 +380,124 @@ export default function About() {
             </motion.div>
           </div>
         </div>
+      </section> */}
+
+      <section className="relative py-36 bg-[#0b0b0c] overflow-hidden">
+
+        {/* ambient background */}
+
+        <div className="absolute inset-0 pointer-events-none">
+
+          <div className="absolute -top-40 -left-40 w-[600px] h-[600px] bg-primary/10 blur-[160px]"></div>
+
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/10 blur-[160px]"></div>
+
+        </div>
+
+        <div className="max-w-6xl mx-auto px-10 relative z-10">
+
+          {/* TITLE */}
+
+          <motion.h2
+            className="text-5xl md:text-6xl font-['dena'] mb-24"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Vision & Mission
+          </motion.h2>
+
+          <div className="flex flex-col gap-32">
+
+            {/* VISION */}
+
+            <motion.div
+              className="max-w-3xl backdrop-blur-xl bg-white/[0.05] border border-white/10 rounded-3xl p-12"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+
+              <div className="flex items-center gap-4 mb-8">
+
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                  <EyeIcon className="w-6 h-6 text-primary" />
+                </div>
+
+                <h3 className="text-3xl font-['test']">
+                  Our Vision
+                </h3>
+
+              </div>
+
+              <p className="text-white/80 font-['scrib'] leading-relaxed text-lg">
+                To lead the global transformation of manufacturing through innovative additive technologies that enable sustainable, efficient, and limitless creation.
+              </p>
+
+              <p className="text-white/70 font-['scrib'] leading-relaxed mt-6">
+                We envision a future where additive manufacturing is the cornerstone of production across industries — eliminating design constraints and enabling customization at scale.
+              </p>
+
+            </motion.div>
+
+            {/* MISSION */}
+
+            <motion.div
+              className="ml-auto max-w-3xl backdrop-blur-xl bg-white/[0.05] border border-white/10 rounded-3xl p-12"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+
+              <div className="flex items-center gap-4 mb-8">
+
+                <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                  <RocketLaunchIcon className="w-6 h-6 text-secondary" />
+                </div>
+
+                <h3 className="text-3xl font-['test']">
+                  Our Mission
+                </h3>
+
+              </div>
+
+              <ul className="space-y-5 font-['scrib'] text-white/80 text-lg">
+
+                <li className="flex gap-3">
+                  <CheckCircleIcon className="w-5 h-5 text-primary mt-1" />
+                  Develop next-generation 3D printing technologies that redefine speed, precision and material capabilities.
+                </li>
+
+                <li className="flex gap-3">
+                  <CheckCircleIcon className="w-5 h-5 text-primary mt-1" />
+                  Foster continuous innovation through research, collaboration and knowledge sharing.
+                </li>
+
+                <li className="flex gap-3">
+                  <CheckCircleIcon className="w-5 h-5 text-primary mt-1" />
+                  Empower clients to unlock the full potential of additive manufacturing.
+                </li>
+
+                <li className="flex gap-3">
+                  <CheckCircleIcon className="w-5 h-5 text-primary mt-1" />
+                  Lead the industry toward sustainable and responsible manufacturing practices.
+                </li>
+
+              </ul>
+
+            </motion.div>
+
+          </div>
+
+        </div>
+
       </section>
 
       {/* FOUNDERS & TEAM */}
-      <section className="py-24 bg-dark-300 relative overflow-hidden">
-        {/* Background elements */}
+      {/* <section className="py-24 bg-dark-300 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl"></div>
@@ -256,7 +526,6 @@ export default function About() {
             />
           </div>
 
-          {/* Founders Section */}
           <div className="mb-16">
             <motion.h3
               className="text-2xl font-['test'] mb-8 text-center"
@@ -269,7 +538,6 @@ export default function About() {
             </motion.h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Founder 1 */}
               <motion.div
                 className="bg-dark-200/50 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10"
                 initial={{ opacity: 0, y: 30 }}
@@ -302,7 +570,6 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Founder 2 */}
               <motion.div
                 className="bg-dark-200/50 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10"
                 initial={{ opacity: 0, y: 30 }}
@@ -335,7 +602,6 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Founder 3 */}
               <motion.div
                 className="bg-dark-200/50 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10"
                 initial={{ opacity: 0, y: 30 }}
@@ -370,7 +636,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Leadership Team */}
           <div className="mb-16">
             <motion.h3
               className="text-2xl font-['test'] mb-8 text-center"
@@ -383,7 +648,6 @@ export default function About() {
             </motion.h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {/* Team Member 1 */}
               <motion.div
                 className="bg-dark-200/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/5"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -406,7 +670,6 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Team Member 2 */}
               <motion.div
                 className="bg-dark-200/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/5"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -429,7 +692,6 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Team Member 3 */}
               <motion.div
                 className="bg-dark-200/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/5"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -452,7 +714,6 @@ export default function About() {
                 </div>
               </motion.div>
 
-              {/* Team Member 4 */}
               <motion.div
                 className="bg-dark-200/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/5"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -477,7 +738,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Team Photo */}
           <motion.div
             className="relative rounded-xl overflow-hidden"
             initial={{ opacity: 0 }}
@@ -504,189 +764,165 @@ export default function About() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
-      {/* FACILITY SHOWCASE */}
-      <section className="py-24 bg-dark-200 relative overflow-hidden">
-        {/* Ambient video background */}
-        <div className="absolute inset-0 -z-20 overflow-hidden">
-          <video className="w-full h-full object-cover opacity-30" autoPlay muted loop playsInline preload="auto" poster="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop">
-            <source src="https://videos.pexels.com/video-files/1409899/1409899-hd_1920_1080_24fps.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-dark-200/70"></div>
-        </div>
+      <section className="relative py-40 bg-[#0a0a0a] overflow-hidden">
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <motion.h2
-              className="text-4xl md:text-5xl font-['dena'] mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              Facility Showcase
-            </motion.h2>
-            <motion.div
-              className="h-1 w-24 bg-primary mx-auto"
-              initial={{ width: 0 }}
-              whileInView={{ width: 96 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            />
-            <motion.p
-              className="mt-6 text-xl font-['scrib'] text-white/80 max-w-3xl mx-auto"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              Our state-of-the-art manufacturing facilities combine cutting-edge technology with sustainable practices.
-            </motion.p>
-          </div>
+        <div className="max-w-7xl mx-auto px-10">
 
-          {/* Facility Images Carousel */}
-          <motion.div
-            className="mb-16 overflow-hidden rounded-xl"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+          {/* TITLE */}
+
+          <motion.h2
+            className="text-6xl font-['dena'] mb-32"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="relative h-[300px] md:h-[500px] w-full">
+            Founders & Team
+          </motion.h2>
+
+
+          {/* FOUNDER 1 */}
+
+          <motion.div
+            className="grid lg:grid-cols-2 gap-20 items-center mb-40"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+
+            <div className="relative h-[520px] rounded-3xl overflow-hidden">
+
               <Image
-                src="https://ik.imagekit.io/0s6dxbeae/unnamed.webp?updatedAt=1756120646928"
-                alt="Galactic 3D Manufacturing Facility"
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=900"
+                alt="Founder"
                 fill
-                style={{ objectFit: 'cover' }}
-                className="rounded-xl"
+                className="object-cover"
               />
+
             </div>
+
+            <div>
+
+              <h3 className="text-4xl font-['test'] mb-3">
+                Dr. Alexander Chen
+              </h3>
+
+              <p className="text-primary font-['dena'] mb-6">
+                CEO & Co-Founder
+              </p>
+
+              <p className="text-white/70 font-['scrib'] leading-relaxed text-lg">
+                Former aerospace engineer with more than fifteen years of experience
+                in advanced manufacturing technologies and large-scale production systems.
+              </p>
+
+            </div>
+
           </motion.div>
 
-          {/* Facility Features */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <motion.div
-              className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-6">
-                <Award className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-['test'] mb-4">ISO Certified</h3>
-              <p className="text-white/70 font-['scrib']">
-                Our facilities maintain ISO 9001 and ISO 13485 certifications, ensuring the highest standards of management and medical device production capabilities.
-              </p>
-            </motion.div>
 
-            {/* Feature 2 */}
-            <motion.div
-              className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-            >
-              <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-6">
-                <Building className="w-6 h-6 text-secondary" />
-              </div>
-              <h3 className="text-xl font-['test'] mb-4">Sustainable Operations</h3>
-              <p className="text-white/70 font-['scrib']">
-                Powered by 100% renewable energy and designed for minimal environmental impact, our facilities represent our commitment to sustainable manufacturing practices.
-              </p>
-            </motion.div>
 
-            {/* Feature 3 */}
-            <motion.div
-              className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-            >
-              <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-6">
-                <Briefcase className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-['test'] mb-4">Virtual Tours Available</h3>
-              <p className="text-white/70 mb-4 font-['scrib']">
-                Experience our facilities from anywhere in the world through our immersive virtual tour platform.
+          {/* FOUNDER 2 */}
+
+          <motion.div
+            className="grid lg:grid-cols-2 gap-20 items-center mb-40"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+
+            <div className="order-2 lg:order-1">
+
+              <h3 className="text-4xl font-['test'] mb-3">
+                Dr. Sophia Rodriguez
+              </h3>
+
+              <p className="text-primary font-['dena'] mb-6">
+                CTO & Co-Founder
               </p>
-              <Link href="/virtual-tour" className="text-primary hover:underline inline-flex font-['dena'] items-center gap-1">
-                <span>Schedule a tour</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.div>
+
+              <p className="text-white/70 font-['scrib'] leading-relaxed text-lg">
+                Materials scientist and pioneer in metal additive manufacturing
+                with multiple patents in industrial printing technologies.
+              </p>
+
+            </div>
+
+            <div className="relative h-[520px] rounded-3xl overflow-hidden order-1 lg:order-2">
+
+              <Image
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=900"
+                alt="Founder"
+                fill
+                className="object-cover"
+              />
+
+            </div>
+
+          </motion.div>
+
+
+
+          {/* FOUNDER 3 */}
+
+          <motion.div
+            className="grid lg:grid-cols-[1fr_420px] gap-24 items-center mb-40"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+
+            <div className="relative h-[520px] rounded-3xl overflow-hidden">
+
+              <Image
+                src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=900"
+                alt="Founder"
+                fill
+                className="object-cover"
+              />
+
+            </div>
+
+            <div>
+
+              <h3 className="text-4xl font-['test'] mb-3">
+                Marcus Johnson
+              </h3>
+
+              <p className="text-primary font-['dena'] mb-6">
+                COO & Co-Founder
+              </p>
+
+              <p className="text-white/70 font-['scrib'] leading-relaxed text-lg">
+                Operations executive with deep expertise in scaling manufacturing
+                businesses across global markets.
+              </p>
+
+            </div>
+
+          </motion.div>
+
+
+
+    
+
+
+
+          {/* JOIN OUR TEAM */}
+
+          
           </div>
-        </div>
       </section>
 
-      {/* STATS SECTION */}
-      <section className="py-20 bg-dark-300 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Stat 1 */}
-            <motion.div
-              className="text-center p-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="text-5xl font-['test'] text-primary mb-2">50+</div>
-              <div className="text-xl font-['dena'] mb-1">Global Patents</div>
-              <p className="text-white/60 font-['scrib'] text-sm">Innovations in additive manufacturing</p>
-            </motion.div>
-
-            {/* Stat 2 */}
-            <motion.div
-              className="text-center p-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <div className="text-5xl font-['test'] text-primary mb-2">200+</div>
-              <div className="text-xl font-['dena'] mb-1">Team Members</div>
-              <p className="text-white/60 font-['scrib'] text-sm">Across 12 countries</p>
-            </motion.div>
-
-            {/* Stat 3 */}
-            <motion.div
-              className="text-center p-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="text-5xl font-['test'] text-primary mb-2">500K+</div>
-              <div className="text-xl font-['dena'] mb-1">Parts Produced</div>
-              <p className="text-white/60 font-['scrib'] text-sm">For aerospace, automotive, and medical industries</p>
-            </motion.div>
-
-            {/* Stat 4 */}
-            <motion.div
-              className="text-center p-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <div className="text-5xl font-['test'] text-primary mb-2">30+</div>
-              <div className="text-xl font-['dena'] mb-1">Industry Awards</div>
-              <p className="text-white/60 font-['scrib'] text-sm">For innovation and excellence</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* CERTIFICATIONS & PARTNERSHIPS */}
-      <section className="py-20 bg-dark-200 relative overflow-hidden">
+      {/* <section className="py-20 bg-dark-200 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-5"></div>
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 to-secondary/5"></div>
@@ -712,9 +948,7 @@ export default function About() {
             />
           </div>
 
-          {/* Logo Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-16">
-            {/* Logo 1 */}
             <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10 flex items-center justify-center h-32"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -732,7 +966,6 @@ export default function About() {
               />
             </motion.div>
 
-            {/* Logo 2 */}
             <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10 flex items-center justify-center h-32"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -750,7 +983,6 @@ export default function About() {
               />
             </motion.div>
 
-            {/* Logo 3 */}
             <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10 flex items-center justify-center h-32"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -768,7 +1000,6 @@ export default function About() {
               />
             </motion.div>
 
-            {/* Logo 4 */}
             <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10 flex items-center justify-center h-32"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -786,7 +1017,6 @@ export default function About() {
               />
             </motion.div>
 
-            {/* Logo 5 */}
             <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10 flex items-center justify-center h-32"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -818,10 +1048,122 @@ export default function About() {
             </Link>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+
+      <section className="py-24 bg-dark-200 relative overflow-hidden">
+
+  {/* ambient background lighting */}
+
+  <div className="absolute inset-0 pointer-events-none">
+
+    <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-primary/10 blur-[140px]" />
+
+    <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-secondary/10 blur-[140px]" />
+
+  </div>
+
+
+  <div className="max-w-6xl mx-auto px-6 relative z-10">
+
+    {/* HEADER */}
+
+    <div className="text-center mb-20">
+
+      <motion.h2
+        className="text-4xl md:text-5xl font-['dena'] mb-4"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        Certifications & Partnerships
+      </motion.h2>
+
+      <p className="text-white/60 font-['scrib']">
+        Trusted by industry leaders and global research partners.
+      </p>
+
+    </div>
+
+
+
+    {/* LOGO GRID */}
+
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+
+      {[1,2,3,4,5,6,7,8,9,10].map((item,i)=>(
+
+        <motion.div
+          key={i}
+          className="relative group rounded-2xl overflow-hidden flex items-center justify-center h-28"
+
+          initial={{opacity:0,y:20}}
+          whileInView={{opacity:1,y:0}}
+          viewport={{once:true}}
+          transition={{duration:0.5,delay:i*0.05}}
+
+          whileHover={{
+            y:-6,
+            scale:1.03
+          }}
+        >
+
+          {/* glass base */}
+
+          <div className="absolute inset-0 backdrop-blur-2xl bg-white/[0.06] border border-white/15 rounded-2xl"/>
+
+          {/* glass highlight */}
+
+          <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-20"/>
+
+          {/* inner glow */}
+
+          <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_40px_rgba(255,255,255,0.05)]"/>
+
+          {/* logo */}
+
+          <Image
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=200"
+            alt="Partner Logo"
+            width={110}
+            height={60}
+            className="relative opacity-70 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition duration-300"
+          />
+
+        </motion.div>
+
+      ))}
+
+    </div>
+
+
+
+    {/* CTA */}
+
+    <motion.div
+      className="flex justify-center mt-16"
+      initial={{opacity:0}}
+      whileInView={{opacity:1}}
+      viewport={{once:true}}
+      transition={{duration:0.7}}
+    >
+
+      <Link
+        href="/partners"
+        className="flex items-center gap-2 text-primary hover:text-secondary font-['test'] text-lg transition"
+      >
+        View all partners
+        <ArrowRight className="w-5 h-5"/>
+      </Link>
+
+    </motion.div>
+
+  </div>
+
+</section>
 
       {/* CAREERS */}
-      <section className="py-20 bg-dark-300 relative overflow-hidden">
+      {/* <section className="py-20 bg-dark-300 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl"></div>
@@ -888,11 +1230,144 @@ export default function About() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+
+      <section className="relative py-28 bg-dark-300 overflow-hidden">
+
+  {/* Background glow */}
+  <div className="absolute inset-0">
+    <div className="absolute top-20 left-1/4 w-[500px] h-[500px] bg-primary/20 blur-[140px] rounded-full"></div>
+    <div className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-secondary/20 blur-[140px] rounded-full"></div>
+  </div>
+
+  <div className="container mx-auto px-6 relative z-10">
+
+    {/* Heading */}
+    <motion.div
+      initial={{ opacity:0, y:40 }}
+      whileInView={{ opacity:1, y:0 }}
+      viewport={{ once:true }}
+      transition={{ duration:0.8 }}
+      className="max-w-3xl mb-16"
+    >
+      <h2 className="text-5xl md:text-6xl font-['test'] leading-tight tracking-tight">
+        Join the <span className="text-primary">Future</span> of
+        <br/>Manufacturing
+      </h2>
+
+      <p className="text-xl text-white/70 mt-6 font-['scrib']">
+        We're building the next frontier of additive manufacturing.
+        Join a team that blends engineering, creativity, and bold
+        experimentation.
+      </p>
+    </motion.div>
+
+
+    {/* Layout */}
+    <div className="grid lg:grid-cols-3 gap-8 items-start">
+
+      {/* Left text block */}
+      <motion.div
+        initial={{ opacity:0, x:-40 }}
+        whileInView={{ opacity:1, x:0 }}
+        viewport={{ once:true }}
+        transition={{ duration:0.7 }}
+        className="lg:col-span-1"
+      >
+        <p className="text-white/60 font-['scrib'] mb-8 leading-relaxed">
+          At Galactic 3D we believe the next generation of engineers,
+          creators, and dreamers will redefine how products are made.
+          We give our team the tools, autonomy, and environment to
+          push boundaries every single day.
+        </p>
+
+        <Link
+          href="/careers"
+          className="inline-flex items-center gap-3 bg-primary hover:bg-secondary px-7 py-3 rounded-full text-white font-['dena'] transition"
+        >
+          Explore Careers
+          <ArrowRight className="w-5 h-5"/>
+        </Link>
+      </motion.div>
+
+
+      {/* Glass benefits card */}
+      <motion.div
+        initial={{ opacity:0, y:40 }}
+        whileInView={{ opacity:1, y:0 }}
+        viewport={{ once:true }}
+        transition={{ duration:0.8 }}
+        className="lg:col-span-2 backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-8 shadow-2xl"
+      >
+
+        <div className="grid md:grid-cols-3 gap-8">
+
+          <div className="group">
+            <Users className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition"/>
+            <h3 className="text-xl font-['dena'] mb-2">
+              Inclusive Culture
+            </h3>
+            <p className="text-white/60 font-['scrib'] text-sm leading-relaxed">
+              A diverse team where every voice contributes to shaping
+              the future of manufacturing.
+            </p>
+          </div>
+
+          <div className="group">
+            <Award className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition"/>
+            <h3 className="text-xl font-['dena'] mb-2">
+              Continuous Learning
+            </h3>
+            <p className="text-white/60 font-['scrib'] text-sm leading-relaxed">
+              Access mentorship, workshops, and cutting-edge tools
+              to accelerate your career.
+            </p>
+          </div>
+
+          <div className="group">
+            <Handshake className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition"/>
+            <h3 className="text-xl font-['dena'] mb-2">
+              Meaningful Impact
+            </h3>
+            <p className="text-white/60 font-['scrib'] text-sm leading-relaxed">
+              Work on projects that shape the future of engineering
+              and advanced manufacturing.
+            </p>
+          </div>
+
+        </div>
+
+      </motion.div>
+
+    </div>
+
+
+    {/* Cinematic Image */}
+    <motion.div
+      initial={{ opacity:0, y:60 }}
+      whileInView={{ opacity:1, y:0 }}
+      viewport={{ once:true }}
+      transition={{ duration:0.9 }}
+      className="mt-20 relative h-[420px] rounded-2xl overflow-hidden border border-white/10"
+    >
+
+      <Image
+        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+        alt="Team collaboration"
+        fill
+        className="object-cover scale-105 hover:scale-110 transition duration-700"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"/>
+
+    </motion.div>
+
+  </div>
+</section>
 
       {/* FINAL CTA SECTION */}
-      <section className="py-24 bg-gradient-to-r from-dark-300 to-dark-200 relative overflow-hidden">
-        {/* Futuristic Elements */}
+      {/* <section className="py-24 bg-gradient-to-r from-dark-300 to-dark-200 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full">
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl"></div>
@@ -936,7 +1411,84 @@ export default function About() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+
+      <section className="py-28 bg-gradient-to-br from-dark-300 via-dark-300 to-dark-200 relative overflow-hidden">
+
+  {/* Ambient lighting */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="absolute top-1/4 left-1/4 w-[420px] h-[420px] bg-primary/20 blur-[120px] rounded-full"></div>
+    <div className="absolute bottom-1/4 right-1/4 w-[420px] h-[420px] bg-secondary/20 blur-[120px] rounded-full"></div>
+  </div>
+
+  {/* subtle overlay */}
+  <div className="absolute inset-0 bg-dark-300/60 backdrop-blur-[2px]" />
+
+  <div className="container mx-auto px-6 relative z-10 flex justify-center">
+
+    {/* Glass panel */}
+    <motion.div
+      initial={{ opacity:0, y:40 }}
+      whileInView={{ opacity:1, y:0 }}
+      viewport={{ once:true }}
+      transition={{ duration:0.8 }}
+      className="max-w-4xl w-full text-center backdrop-blur-xl bg-white/[0.04] border border-white/10 rounded-3xl px-10 py-14 shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+    >
+
+      {/* Heading */}
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-['test'] text-white leading-tight mb-6 tracking-tight">
+        Together, We Shape the Future  
+        <span className="block text-primary mt-2">
+          of Manufacturing
+        </span>
+      </h2>
+
+      {/* Supporting text */}
+      <p className="text-lg md:text-xl text-white/70 font-['scrib'] max-w-2xl mx-auto mb-10 leading-relaxed">
+        Partner with Galactic 3D to transform bold ideas into precision-engineered
+        products through advanced additive manufacturing technologies.
+      </p>
+
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row justify-center gap-5">
+
+        <motion.div
+          whileHover={{ scale:1.05 }}
+          whileTap={{ scale:0.96 }}
+          transition={{ type:"spring", stiffness:320, damping:18 }}
+        >
+          <Link
+            href="/contact"
+            className="group bg-primary text-white font-['dena'] px-8 py-4 rounded-full inline-flex items-center gap-3 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300"
+          >
+            Contact Us
+            <ArrowRight className="w-5 h-5 transition group-hover:translate-x-1"/>
+          </Link>
+        </motion.div>
+
+        <motion.div
+          whileHover={{ scale:1.05 }}
+          whileTap={{ scale:0.96 }}
+          transition={{ type:"spring", stiffness:320, damping:18 }}
+        >
+          <Link
+            href="/projects"
+            className="group backdrop-blur-md bg-white/5 border border-white/20 text-white font-['dena'] px-8 py-4 rounded-full inline-flex items-center gap-3 hover:bg-white/10 transition-all duration-300"
+          >
+            Explore Our Work
+            <ExternalLink className="w-5 h-5 transition group-hover:rotate-12"/>
+          </Link>
+        </motion.div>
+
+      </div>
+
+    </motion.div>
+
+  </div>
+
+</section>
+
+      
     </main>
   );
 }

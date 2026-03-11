@@ -382,7 +382,11 @@ export default function MarketplacePage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm text-gray-300 block mb-1">Material</label>
-                      <select className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary" required>
+                      <select
+  name="material"
+  className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary [&>option]:bg-black [&>option]:text-white"
+  required
+>
                         <option value="">Select material</option>
                         <option>PLA</option>
                         <option>ABS</option>
@@ -398,7 +402,11 @@ export default function MarketplacePage() {
                     </div>
                     <div>
                       <label className="text-sm text-gray-300 block mb-1">Finish</label>
-                      <select className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary" required>
+                      <select
+  name="finish"
+  className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary [&>option]:bg-black [&>option]:text-white"
+  required
+>
                         <option value="">Select finish</option>
                         <option>As Printed</option>
                         <option>Sanded</option>
@@ -415,7 +423,7 @@ export default function MarketplacePage() {
                       <label className="text-sm text-gray-300 block mb-1">Quantity</label>
                       <input type="number" min="1" className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="1" required />
                     </div>
-                    <div>
+                    {/* <div>
                       <label className="text-sm text-gray-300 block mb-1">Priority</label>
                       <select className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-primary" required>
                         <option value="">Select priority</option>
@@ -423,7 +431,7 @@ export default function MarketplacePage() {
                         <option>Express (3-5 days)</option>
                         <option>Rush (24-48 hours)</option>
                       </select>
-                    </div>
+                    </div> */}
                   </div>
                   
                   <div>
